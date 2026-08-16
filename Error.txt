@@ -1,0 +1,753 @@
+Executing tasks: [:app:assembleDebug] in project D:\PMC\Documents\Android\VpnM_Pro
+
+Reusing configuration cache.
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:mergeDebugNativeDebugMetadata NO-SOURCE
+> Task :app:generateDebugAssets UP-TO-DATE
+> Task :app:processDebugGoogleServices UP-TO-DATE
+> Task :app:javaPreCompileDebug UP-TO-DATE
+> Task :app:generateDebugBuildConfig UP-TO-DATE
+> Task :app:mergeDebugAssets UP-TO-DATE
+> Task :app:compressDebugAssets UP-TO-DATE
+> Task :app:checkDebugDuplicateClasses UP-TO-DATE
+> Task :app:desugarDebugFileDependencies UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:processDebugNavigationResources UP-TO-DATE
+> Task :app:mergeLibDexDebug UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:compileDebugNavigationResources UP-TO-DATE
+> Task :app:generateDebugRFile UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:kspDebugKotlin UP-TO-DATE
+> Task :app:mergeExtDexDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources UP-TO-DATE
+> Task :app:validateSigningDebug UP-TO-DATE
+> Task :app:writeDebugAppMetadata UP-TO-DATE
+> Task :app:writeDebugSigningConfigVersions UP-TO-DATE
+> Task :app:mergeDebugJniLibFolders UP-TO-DATE
+> Task :app:compileDebugKotlin UP-TO-DATE
+> Task :app:compileDebugJavaWithJavac UP-TO-DATE
+> Task :app:dexBuilderDebug UP-TO-DATE
+> Task :app:mergeProjectDexDebug UP-TO-DATE
+> Task :app:processDebugJavaRes UP-TO-DATE
+> Task :app:mergeDebugJavaResource UP-TO-DATE
+> Task :app:configureCMakeDebug[arm64-v8a]
+
+> Task :app:buildCMakeDebug[arm64-v8a] FAILED
+C/C++: ninja: Entering directory `D:\PMC\Documents\Android\VpnM_Pro\app\.cxx\Debug\5g81d256\arm64-v8a'
+C/C++: C:\Users\PMC\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/PMC/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMBEDTLS_AES_C -DMBEDTLS_ALLOW_PRIVATE_ACCESS -DMBEDTLS_ASN1_PARSE_C -DMBEDTLS_ASN1_WRITE_C -DMBEDTLS_BIGNUM_C -DMBEDTLS_CHACHA20_C -DMBEDTLS_CHACHAPOLY_C -DMBEDTLS_CIPHER_C -DMBEDTLS_CTR_DRBG_C -DMBEDTLS_ENTROPY_C -DMBEDTLS_MD5_C -DMBEDTLS_MD_C -DMBEDTLS_NET_C -DMBEDTLS_OID_C -DMBEDTLS_PK_C -DMBEDTLS_POLY1305_C -DMBEDTLS_SHA1_C -DMBEDTLS_SHA256_C -DMBEDTLS_SSL_CLI_C -DMBEDTLS_SSL_TLS_C -Dsoftether_EXPORTS -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/include -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -Wall -Wno-unused-parameter -Wno-unused-variable -fPIC -g -O0 -std=gnu11 -MD -MT CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o -MF CMakeFiles\softether.dir\softether-core\src\proto\softether_rudp.c.o.d -o CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o -c D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:11: error: unknown type name 'mbedtls_md_info_t'
+C/C++:    52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+C/C++:       |           ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:    52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+C/C++:       |                                        ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:66: error: use of undeclared identifier 'MBEDTLS_MD_SHA1'
+C/C++:    52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+C/C++:       |                                                                  ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:54:9: error: call to undeclared function 'mbedtls_md'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:    54 |         mbedtls_md(md_info, tmp, sizeof(tmp), key);
+C/C++:       |         ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:618:13: error: use of undeclared identifier 'mbedtls_chachapoly_context'
+C/C++:   618 |             mbedtls_chachapoly_context cp;
+C/C++:       |             ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:619:13: error: call to undeclared function 'mbedtls_chachapoly_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   619 |             mbedtls_chachapoly_init(&cp);
+C/C++:       |             ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:619:38: error: use of undeclared identifier 'cp'
+C/C++:   619 |             mbedtls_chachapoly_init(&cp);
+C/C++:       |                                      ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:620:17: error: call to undeclared function 'mbedtls_chachapoly_setkey'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   620 |             if (mbedtls_chachapoly_setkey(&cp, ctx->your_key_v2) != 0) {
+C/C++:       |                 ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:620:44: error: use of undeclared identifier 'cp'
+C/C++:   620 |             if (mbedtls_chachapoly_setkey(&cp, ctx->your_key_v2) != 0) {
+C/C++:       |                                            ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:621:17: error: call to undeclared function 'mbedtls_chachapoly_free'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   621 |                 mbedtls_chachapoly_free(&cp);
+C/C++:       |                 ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:621:42: error: use of undeclared identifier 'cp'
+C/C++:   621 |                 mbedtls_chachapoly_free(&cp);
+C/C++:       |                                          ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:625:28: error: call to undeclared function 'mbedtls_chachapoly_auth_decrypt'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   625 |             int auth_ret = mbedtls_chachapoly_auth_decrypt(&cp, cipher_len, iv, NULL, 0,
+C/C++:       |                            ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:625:61: error: use of undeclared identifier 'cp'
+C/C++:   625 |             int auth_ret = mbedtls_chachapoly_auth_decrypt(&cp, cipher_len, iv, NULL, 0,
+C/C++:       |                                                             ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:627:13: error: call to undeclared function 'mbedtls_chachapoly_free'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   627 |             mbedtls_chachapoly_free(&cp);
+C/C++:       |             ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:627:38: error: use of undeclared identifier 'cp'
+C/C++:   627 |             mbedtls_chachapoly_free(&cp);
+C/C++:       |                                      ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:772:9: error: use of undeclared identifier 'mbedtls_chachapoly_context'
+C/C++:   772 |         mbedtls_chachapoly_context cp;
+C/C++:       |         ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:773:9: error: call to undeclared function 'mbedtls_chachapoly_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   773 |         mbedtls_chachapoly_init(&cp);
+C/C++:       |         ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:773:34: error: use of undeclared identifier 'cp'
+C/C++:   773 |         mbedtls_chachapoly_init(&cp);
+C/C++:       |                                  ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:774:13: error: call to undeclared function 'mbedtls_chachapoly_setkey'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   774 |         if (mbedtls_chachapoly_setkey(&cp, ctx->my_key_v2) != 0) {
+C/C++:       |             ^
+C/C++: fatal error: too many errors emitted, stopping now [-ferror-limit=]
+C/C++: 20 errors generated.
+C/C++: C:\Users\PMC\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/PMC/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMBEDTLS_AES_C -DMBEDTLS_ALLOW_PRIVATE_ACCESS -DMBEDTLS_ASN1_PARSE_C -DMBEDTLS_ASN1_WRITE_C -DMBEDTLS_BIGNUM_C -DMBEDTLS_CHACHA20_C -DMBEDTLS_CHACHAPOLY_C -DMBEDTLS_CIPHER_C -DMBEDTLS_CTR_DRBG_C -DMBEDTLS_ENTROPY_C -DMBEDTLS_MD5_C -DMBEDTLS_MD_C -DMBEDTLS_NET_C -DMBEDTLS_OID_C -DMBEDTLS_PK_C -DMBEDTLS_POLY1305_C -DMBEDTLS_SHA1_C -DMBEDTLS_SHA256_C -DMBEDTLS_SSL_CLI_C -DMBEDTLS_SSL_TLS_C -Dsoftether_EXPORTS -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/include -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -Wall -Wno-unused-parameter -Wno-unused-variable -fPIC -g -O0 -std=gnu11 -MD -MT CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o -MF CMakeFiles\softether.dir\softether-core\src\crypto\crypto_mbedtls.c.o.d -o CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o -c D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:34:5: error: unknown type name 'mbedtls_cipher_context_t'
+C/C++:    34 |     mbedtls_cipher_context_t cipher_ctx;
+C/C++:       |     ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:41:5: error: unknown type name 'mbedtls_ssl_context'
+C/C++:    41 |     mbedtls_ssl_context ssl;
+C/C++:       |     ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:42:5: error: unknown type name 'mbedtls_ssl_config'
+C/C++:    42 |     mbedtls_ssl_config conf;
+C/C++:       |     ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:43:5: error: unknown type name 'mbedtls_ctr_drbg_context'
+C/C++:    43 |     mbedtls_ctr_drbg_context ctr_drbg;
+C/C++:       |     ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:44:5: error: unknown type name 'mbedtls_entropy_context'
+C/C++:    44 |     mbedtls_entropy_context entropy;
+C/C++:       |     ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:52:24: error: use of undeclared identifier 'MBEDTLS_ERR_NET_INVALID_CONTEXT'
+C/C++:    52 |     if (fd < 0) return MBEDTLS_ERR_NET_INVALID_CONTEXT;
+C/C++:       |                        ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:56:20: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_WANT_WRITE'
+C/C++:    56 |             return MBEDTLS_ERR_SSL_WANT_WRITE;
+C/C++:       |                    ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:59:16: error: use of undeclared identifier 'MBEDTLS_ERR_NET_SEND_FAILED'
+C/C++:    59 |         return MBEDTLS_ERR_NET_SEND_FAILED;
+C/C++:       |                ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:66:24: error: use of undeclared identifier 'MBEDTLS_ERR_NET_INVALID_CONTEXT'
+C/C++:    66 |     if (fd < 0) return MBEDTLS_ERR_NET_INVALID_CONTEXT;
+C/C++:       |                        ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:70:20: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_WANT_READ'
+C/C++:    70 |             return MBEDTLS_ERR_SSL_WANT_READ;
+C/C++:       |                    ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:73:16: error: use of undeclared identifier 'MBEDTLS_ERR_NET_RECV_FAILED'
+C/C++:    73 |         return MBEDTLS_ERR_NET_RECV_FAILED;
+C/C++:       |                ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:76:16: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY'
+C/C++:    76 |         return MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY;
+C/C++:       |                ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:11: error: unknown type name 'mbedtls_md_info_t'
+C/C++:   101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+C/C++:       |           ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+C/C++:       |                                        ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:66: error: use of undeclared identifier 'MBEDTLS_MD_MD5'
+C/C++:   101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+C/C++:       |                                                                  ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:103:5: error: call to undeclared function 'mbedtls_md'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   103 |     mbedtls_md(md_info, data ? data : (const uint8_t*)"", data_len, hash);
+C/C++:       |     ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:11: error: unknown type name 'mbedtls_md_info_t'
+C/C++:   109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+C/C++:       |           ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+C/C++:   109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+C/C++:       |                                        ^
+C/C++: D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:66: error: use of undeclared identifier 'MBEDTLS_MD_SHA1'
+C/C++:   109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+C/C++:       |                                                                  ^
+C/C++: fatal error: too many errors emitted, stopping now [-ferror-limit=]
+C/C++: 20 errors generated.
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:buildCMakeDebug[arm64-v8a]'.
+> com.android.ide.common.process.ProcessException: ninja: Entering directory `D:\PMC\Documents\Android\VpnM_Pro\app\.cxx\Debug\5g81d256\arm64-v8a'
+  [1/14] Building C object CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o
+  FAILED: CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o 
+  C:\Users\PMC\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/PMC/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMBEDTLS_AES_C -DMBEDTLS_ALLOW_PRIVATE_ACCESS -DMBEDTLS_ASN1_PARSE_C -DMBEDTLS_ASN1_WRITE_C -DMBEDTLS_BIGNUM_C -DMBEDTLS_CHACHA20_C -DMBEDTLS_CHACHAPOLY_C -DMBEDTLS_CIPHER_C -DMBEDTLS_CTR_DRBG_C -DMBEDTLS_ENTROPY_C -DMBEDTLS_MD5_C -DMBEDTLS_MD_C -DMBEDTLS_NET_C -DMBEDTLS_OID_C -DMBEDTLS_PK_C -DMBEDTLS_POLY1305_C -DMBEDTLS_SHA1_C -DMBEDTLS_SHA256_C -DMBEDTLS_SSL_CLI_C -DMBEDTLS_SSL_TLS_C -Dsoftether_EXPORTS -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/include -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -Wall -Wno-unused-parameter -Wno-unused-variable -fPIC -g -O0 -std=gnu11 -MD -MT CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o -MF CMakeFiles\softether.dir\softether-core\src\proto\softether_rudp.c.o.d -o CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o -c D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:11: error: unknown type name 'mbedtls_md_info_t'
+     52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+        |           ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+        |                                        ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:66: error: use of undeclared identifier 'MBEDTLS_MD_SHA1'
+     52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+        |                                                                  ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:54:9: error: call to undeclared function 'mbedtls_md'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     54 |         mbedtls_md(md_info, tmp, sizeof(tmp), key);
+        |         ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:618:13: error: use of undeclared identifier 'mbedtls_chachapoly_context'
+    618 |             mbedtls_chachapoly_context cp;
+        |             ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:619:13: error: call to undeclared function 'mbedtls_chachapoly_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    619 |             mbedtls_chachapoly_init(&cp);
+        |             ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:619:38: error: use of undeclared identifier 'cp'
+    619 |             mbedtls_chachapoly_init(&cp);
+        |                                      ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:620:17: error: call to undeclared function 'mbedtls_chachapoly_setkey'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    620 |             if (mbedtls_chachapoly_setkey(&cp, ctx->your_key_v2) != 0) {
+        |                 ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:620:44: error: use of undeclared identifier 'cp'
+    620 |             if (mbedtls_chachapoly_setkey(&cp, ctx->your_key_v2) != 0) {
+        |                                            ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:621:17: error: call to undeclared function 'mbedtls_chachapoly_free'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    621 |                 mbedtls_chachapoly_free(&cp);
+        |                 ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:621:42: error: use of undeclared identifier 'cp'
+    621 |                 mbedtls_chachapoly_free(&cp);
+        |                                          ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:625:28: error: call to undeclared function 'mbedtls_chachapoly_auth_decrypt'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    625 |             int auth_ret = mbedtls_chachapoly_auth_decrypt(&cp, cipher_len, iv, NULL, 0,
+        |                            ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:625:61: error: use of undeclared identifier 'cp'
+    625 |             int auth_ret = mbedtls_chachapoly_auth_decrypt(&cp, cipher_len, iv, NULL, 0,
+        |                                                             ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:627:13: error: call to undeclared function 'mbedtls_chachapoly_free'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    627 |             mbedtls_chachapoly_free(&cp);
+        |             ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:627:38: error: use of undeclared identifier 'cp'
+    627 |             mbedtls_chachapoly_free(&cp);
+        |                                      ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:772:9: error: use of undeclared identifier 'mbedtls_chachapoly_context'
+    772 |         mbedtls_chachapoly_context cp;
+        |         ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:773:9: error: call to undeclared function 'mbedtls_chachapoly_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    773 |         mbedtls_chachapoly_init(&cp);
+        |         ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:773:34: error: use of undeclared identifier 'cp'
+    773 |         mbedtls_chachapoly_init(&cp);
+        |                                  ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:774:13: error: call to undeclared function 'mbedtls_chachapoly_setkey'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    774 |         if (mbedtls_chachapoly_setkey(&cp, ctx->my_key_v2) != 0) {
+        |             ^
+  fatal error: too many errors emitted, stopping now [-ferror-limit=]
+  20 errors generated.
+  [2/14] Building C object CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o
+  FAILED: CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o 
+  C:\Users\PMC\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/PMC/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMBEDTLS_AES_C -DMBEDTLS_ALLOW_PRIVATE_ACCESS -DMBEDTLS_ASN1_PARSE_C -DMBEDTLS_ASN1_WRITE_C -DMBEDTLS_BIGNUM_C -DMBEDTLS_CHACHA20_C -DMBEDTLS_CHACHAPOLY_C -DMBEDTLS_CIPHER_C -DMBEDTLS_CTR_DRBG_C -DMBEDTLS_ENTROPY_C -DMBEDTLS_MD5_C -DMBEDTLS_MD_C -DMBEDTLS_NET_C -DMBEDTLS_OID_C -DMBEDTLS_PK_C -DMBEDTLS_POLY1305_C -DMBEDTLS_SHA1_C -DMBEDTLS_SHA256_C -DMBEDTLS_SSL_CLI_C -DMBEDTLS_SSL_TLS_C -Dsoftether_EXPORTS -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/include -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -Wall -Wno-unused-parameter -Wno-unused-variable -fPIC -g -O0 -std=gnu11 -MD -MT CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o -MF CMakeFiles\softether.dir\softether-core\src\crypto\crypto_mbedtls.c.o.d -o CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o -c D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:34:5: error: unknown type name 'mbedtls_cipher_context_t'
+     34 |     mbedtls_cipher_context_t cipher_ctx;
+        |     ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:41:5: error: unknown type name 'mbedtls_ssl_context'
+     41 |     mbedtls_ssl_context ssl;
+        |     ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:42:5: error: unknown type name 'mbedtls_ssl_config'
+     42 |     mbedtls_ssl_config conf;
+        |     ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:43:5: error: unknown type name 'mbedtls_ctr_drbg_context'
+     43 |     mbedtls_ctr_drbg_context ctr_drbg;
+        |     ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:44:5: error: unknown type name 'mbedtls_entropy_context'
+     44 |     mbedtls_entropy_context entropy;
+        |     ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:52:24: error: use of undeclared identifier 'MBEDTLS_ERR_NET_INVALID_CONTEXT'
+     52 |     if (fd < 0) return MBEDTLS_ERR_NET_INVALID_CONTEXT;
+        |                        ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:56:20: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_WANT_WRITE'
+     56 |             return MBEDTLS_ERR_SSL_WANT_WRITE;
+        |                    ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:59:16: error: use of undeclared identifier 'MBEDTLS_ERR_NET_SEND_FAILED'
+     59 |         return MBEDTLS_ERR_NET_SEND_FAILED;
+        |                ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:66:24: error: use of undeclared identifier 'MBEDTLS_ERR_NET_INVALID_CONTEXT'
+     66 |     if (fd < 0) return MBEDTLS_ERR_NET_INVALID_CONTEXT;
+        |                        ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:70:20: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_WANT_READ'
+     70 |             return MBEDTLS_ERR_SSL_WANT_READ;
+        |                    ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:73:16: error: use of undeclared identifier 'MBEDTLS_ERR_NET_RECV_FAILED'
+     73 |         return MBEDTLS_ERR_NET_RECV_FAILED;
+        |                ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:76:16: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY'
+     76 |         return MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY;
+        |                ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:11: error: unknown type name 'mbedtls_md_info_t'
+    101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+        |           ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+        |                                        ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:66: error: use of undeclared identifier 'MBEDTLS_MD_MD5'
+    101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+        |                                                                  ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:103:5: error: call to undeclared function 'mbedtls_md'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    103 |     mbedtls_md(md_info, data ? data : (const uint8_t*)"", data_len, hash);
+        |     ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:11: error: unknown type name 'mbedtls_md_info_t'
+    109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+        |           ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+        |                                        ^
+  D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:66: error: use of undeclared identifier 'MBEDTLS_MD_SHA1'
+    109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+        |                                                                  ^
+  fatal error: too many errors emitted, stopping now [-ferror-limit=]
+  20 errors generated.
+  [3/14] Building C object CMakeFiles/softether_test.dir/jni/softether_jni.c.o
+  [4/14] Building C object CMakeFiles/softether_test.dir/test/test_jni_bridge.c.o
+  [5/14] Building C object CMakeFiles/softether_test.dir/test/native_test.c.o
+  [6/14] Building C object CMakeFiles/softether_test.dir/softether-core/src/proto/softether_protocol.c.o
+  ninja: build stopped: subcommand failed.
+  
+  C++ build system [build] failed while executing:
+      @echo off
+      "C:\\Users\\PMC\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
+        -C ^
+        "D:\\PMC\\Documents\\Android\\VpnM_Pro\\app\\.cxx\\Debug\\5g81d256\\arm64-v8a" ^
+        softether ^
+        softether_test
+    from D:\PMC\Documents\Android\VpnM_Pro\app
+
+* Try:
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+* Exception is:
+org.gradle.api.tasks.TaskExecutionException: Execution failed for task ':app:buildCMakeDebug[arm64-v8a]'.
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.lambda$executeIfValid$1(ExecuteActionsTaskExecuter.java:135)
+	at org.gradle.internal.Try$Failure.ifSuccessfulOrElse(Try.java:288)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:133)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.execute(ExecuteActionsTaskExecuter.java:121)
+	at org.gradle.api.internal.tasks.execution.ProblemsTaskPathTrackingTaskExecuter.execute(ProblemsTaskPathTrackingTaskExecuter.java:41)
+	at org.gradle.api.internal.tasks.execution.FinalizePropertiesTaskExecuter.execute(FinalizePropertiesTaskExecuter.java:46)
+	at org.gradle.api.internal.tasks.execution.ResolveTaskExecutionModeExecuter.execute(ResolveTaskExecutionModeExecuter.java:51)
+	at org.gradle.api.internal.tasks.execution.SkipTaskWithNoActionsExecuter.execute(SkipTaskWithNoActionsExecuter.java:57)
+	at org.gradle.api.internal.tasks.execution.SkipOnlyIfTaskExecuter.execute(SkipOnlyIfTaskExecuter.java:74)
+	at org.gradle.api.internal.tasks.execution.CatchExceptionTaskExecuter.execute(CatchExceptionTaskExecuter.java:36)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.executeTask(EventFiringTaskExecuter.java:77)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:55)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter$1.call(EventFiringTaskExecuter.java:52)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.api.internal.tasks.execution.EventFiringTaskExecuter.execute(EventFiringTaskExecuter.java:52)
+	at org.gradle.execution.plan.DefaultNodeExecutor.executeLocalTaskNode(DefaultNodeExecutor.java:55)
+	at org.gradle.execution.plan.DefaultNodeExecutor.execute(DefaultNodeExecutor.java:34)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:355)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$InvokeNodeExecutorsAction.execute(DefaultTaskExecutionGraph.java:343)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.lambda$execute$0(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.internal.operations.CurrentBuildOperationRef.with(CurrentBuildOperationRef.java:84)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:339)
+	at org.gradle.execution.taskgraph.DefaultTaskExecutionGraph$BuildOperationAwareExecutionAction.execute(DefaultTaskExecutionGraph.java:328)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.execute(DefaultPlanExecutor.java:459)
+	at org.gradle.execution.plan.DefaultPlanExecutor$ExecutorWorker.run(DefaultPlanExecutor.java:376)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.AbstractManagedExecutor$1.run(AbstractManagedExecutor.java:47)
+Caused by: org.gradle.internal.UncheckedException: com.android.ide.common.process.ProcessException: ninja: Entering directory `D:\PMC\Documents\Android\VpnM_Pro\app\.cxx\Debug\5g81d256\arm64-v8a'
+[1/14] Building C object CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o
+FAILED: CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o 
+C:\Users\PMC\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/PMC/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMBEDTLS_AES_C -DMBEDTLS_ALLOW_PRIVATE_ACCESS -DMBEDTLS_ASN1_PARSE_C -DMBEDTLS_ASN1_WRITE_C -DMBEDTLS_BIGNUM_C -DMBEDTLS_CHACHA20_C -DMBEDTLS_CHACHAPOLY_C -DMBEDTLS_CIPHER_C -DMBEDTLS_CTR_DRBG_C -DMBEDTLS_ENTROPY_C -DMBEDTLS_MD5_C -DMBEDTLS_MD_C -DMBEDTLS_NET_C -DMBEDTLS_OID_C -DMBEDTLS_PK_C -DMBEDTLS_POLY1305_C -DMBEDTLS_SHA1_C -DMBEDTLS_SHA256_C -DMBEDTLS_SSL_CLI_C -DMBEDTLS_SSL_TLS_C -Dsoftether_EXPORTS -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/include -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -Wall -Wno-unused-parameter -Wno-unused-variable -fPIC -g -O0 -std=gnu11 -MD -MT CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o -MF CMakeFiles\softether.dir\softether-core\src\proto\softether_rudp.c.o.d -o CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o -c D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:11: error: unknown type name 'mbedtls_md_info_t'
+   52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |           ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |                                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:66: error: use of undeclared identifier 'MBEDTLS_MD_SHA1'
+   52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |                                                                  ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:54:9: error: call to undeclared function 'mbedtls_md'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   54 |         mbedtls_md(md_info, tmp, sizeof(tmp), key);
+      |         ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:618:13: error: use of undeclared identifier 'mbedtls_chachapoly_context'
+  618 |             mbedtls_chachapoly_context cp;
+      |             ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:619:13: error: call to undeclared function 'mbedtls_chachapoly_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  619 |             mbedtls_chachapoly_init(&cp);
+      |             ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:619:38: error: use of undeclared identifier 'cp'
+  619 |             mbedtls_chachapoly_init(&cp);
+      |                                      ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:620:17: error: call to undeclared function 'mbedtls_chachapoly_setkey'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  620 |             if (mbedtls_chachapoly_setkey(&cp, ctx->your_key_v2) != 0) {
+      |                 ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:620:44: error: use of undeclared identifier 'cp'
+  620 |             if (mbedtls_chachapoly_setkey(&cp, ctx->your_key_v2) != 0) {
+      |                                            ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:621:17: error: call to undeclared function 'mbedtls_chachapoly_free'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  621 |                 mbedtls_chachapoly_free(&cp);
+      |                 ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:621:42: error: use of undeclared identifier 'cp'
+  621 |                 mbedtls_chachapoly_free(&cp);
+      |                                          ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:625:28: error: call to undeclared function 'mbedtls_chachapoly_auth_decrypt'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  625 |             int auth_ret = mbedtls_chachapoly_auth_decrypt(&cp, cipher_len, iv, NULL, 0,
+      |                            ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:625:61: error: use of undeclared identifier 'cp'
+  625 |             int auth_ret = mbedtls_chachapoly_auth_decrypt(&cp, cipher_len, iv, NULL, 0,
+      |                                                             ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:627:13: error: call to undeclared function 'mbedtls_chachapoly_free'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  627 |             mbedtls_chachapoly_free(&cp);
+      |             ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:627:38: error: use of undeclared identifier 'cp'
+  627 |             mbedtls_chachapoly_free(&cp);
+      |                                      ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:772:9: error: use of undeclared identifier 'mbedtls_chachapoly_context'
+  772 |         mbedtls_chachapoly_context cp;
+      |         ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:773:9: error: call to undeclared function 'mbedtls_chachapoly_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  773 |         mbedtls_chachapoly_init(&cp);
+      |         ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:773:34: error: use of undeclared identifier 'cp'
+  773 |         mbedtls_chachapoly_init(&cp);
+      |                                  ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:774:13: error: call to undeclared function 'mbedtls_chachapoly_setkey'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  774 |         if (mbedtls_chachapoly_setkey(&cp, ctx->my_key_v2) != 0) {
+      |             ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[2/14] Building C object CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o
+FAILED: CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o 
+C:\Users\PMC\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/PMC/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMBEDTLS_AES_C -DMBEDTLS_ALLOW_PRIVATE_ACCESS -DMBEDTLS_ASN1_PARSE_C -DMBEDTLS_ASN1_WRITE_C -DMBEDTLS_BIGNUM_C -DMBEDTLS_CHACHA20_C -DMBEDTLS_CHACHAPOLY_C -DMBEDTLS_CIPHER_C -DMBEDTLS_CTR_DRBG_C -DMBEDTLS_ENTROPY_C -DMBEDTLS_MD5_C -DMBEDTLS_MD_C -DMBEDTLS_NET_C -DMBEDTLS_OID_C -DMBEDTLS_PK_C -DMBEDTLS_POLY1305_C -DMBEDTLS_SHA1_C -DMBEDTLS_SHA256_C -DMBEDTLS_SSL_CLI_C -DMBEDTLS_SSL_TLS_C -Dsoftether_EXPORTS -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/include -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -Wall -Wno-unused-parameter -Wno-unused-variable -fPIC -g -O0 -std=gnu11 -MD -MT CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o -MF CMakeFiles\softether.dir\softether-core\src\crypto\crypto_mbedtls.c.o.d -o CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o -c D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:34:5: error: unknown type name 'mbedtls_cipher_context_t'
+   34 |     mbedtls_cipher_context_t cipher_ctx;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:41:5: error: unknown type name 'mbedtls_ssl_context'
+   41 |     mbedtls_ssl_context ssl;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:42:5: error: unknown type name 'mbedtls_ssl_config'
+   42 |     mbedtls_ssl_config conf;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:43:5: error: unknown type name 'mbedtls_ctr_drbg_context'
+   43 |     mbedtls_ctr_drbg_context ctr_drbg;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:44:5: error: unknown type name 'mbedtls_entropy_context'
+   44 |     mbedtls_entropy_context entropy;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:52:24: error: use of undeclared identifier 'MBEDTLS_ERR_NET_INVALID_CONTEXT'
+   52 |     if (fd < 0) return MBEDTLS_ERR_NET_INVALID_CONTEXT;
+      |                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:56:20: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_WANT_WRITE'
+   56 |             return MBEDTLS_ERR_SSL_WANT_WRITE;
+      |                    ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:59:16: error: use of undeclared identifier 'MBEDTLS_ERR_NET_SEND_FAILED'
+   59 |         return MBEDTLS_ERR_NET_SEND_FAILED;
+      |                ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:66:24: error: use of undeclared identifier 'MBEDTLS_ERR_NET_INVALID_CONTEXT'
+   66 |     if (fd < 0) return MBEDTLS_ERR_NET_INVALID_CONTEXT;
+      |                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:70:20: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_WANT_READ'
+   70 |             return MBEDTLS_ERR_SSL_WANT_READ;
+      |                    ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:73:16: error: use of undeclared identifier 'MBEDTLS_ERR_NET_RECV_FAILED'
+   73 |         return MBEDTLS_ERR_NET_RECV_FAILED;
+      |                ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:76:16: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY'
+   76 |         return MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY;
+      |                ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:11: error: unknown type name 'mbedtls_md_info_t'
+  101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+      |           ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+      |                                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:66: error: use of undeclared identifier 'MBEDTLS_MD_MD5'
+  101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+      |                                                                  ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:103:5: error: call to undeclared function 'mbedtls_md'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  103 |     mbedtls_md(md_info, data ? data : (const uint8_t*)"", data_len, hash);
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:11: error: unknown type name 'mbedtls_md_info_t'
+  109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |           ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |                                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:66: error: use of undeclared identifier 'MBEDTLS_MD_SHA1'
+  109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |                                                                  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[3/14] Building C object CMakeFiles/softether_test.dir/jni/softether_jni.c.o
+[4/14] Building C object CMakeFiles/softether_test.dir/test/test_jni_bridge.c.o
+[5/14] Building C object CMakeFiles/softether_test.dir/test/native_test.c.o
+[6/14] Building C object CMakeFiles/softether_test.dir/softether-core/src/proto/softether_protocol.c.o
+ninja: build stopped: subcommand failed.
+
+C++ build system [build] failed while executing:
+    @echo off
+    "C:\\Users\\PMC\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
+      -C ^
+      "D:\\PMC\\Documents\\Android\\VpnM_Pro\\app\\.cxx\\Debug\\5g81d256\\arm64-v8a" ^
+      softether ^
+      softether_test
+  from D:\PMC\Documents\Android\VpnM_Pro\app
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:69)
+	at org.gradle.internal.UncheckedException.throwAsUncheckedException(UncheckedException.java:42)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:129)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.doExecute(StandardTaskAction.java:58)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:51)
+	at org.gradle.api.internal.project.taskfactory.StandardTaskAction.execute(StandardTaskAction.java:29)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$3.run(TaskExecution.java:259)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:29)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$1.execute(DefaultBuildOperationRunner.java:26)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.run(DefaultBuildOperationRunner.java:47)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeAction(TaskExecution.java:244)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeActions(TaskExecution.java:227)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.executeWithPreviousOutputFiles(TaskExecution.java:210)
+	at org.gradle.api.internal.tasks.execution.TaskExecution.execute(TaskExecution.java:176)
+	at org.gradle.internal.execution.steps.ExecuteStep.executeInternal(ExecuteStep.java:110)
+	at org.gradle.internal.execution.steps.ExecuteStep.access$000(ExecuteStep.java:47)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:64)
+	at org.gradle.internal.execution.steps.ExecuteStep$1.call(ExecuteStep.java:61)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:209)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$CallableBuildOperationWorker.execute(DefaultBuildOperationRunner.java:204)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:66)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner$2.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:166)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.execute(DefaultBuildOperationRunner.java:59)
+	at org.gradle.internal.operations.DefaultBuildOperationRunner.call(DefaultBuildOperationRunner.java:53)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:61)
+	at org.gradle.internal.execution.steps.ExecuteStep.execute(ExecuteStep.java:47)
+	at org.gradle.internal.execution.steps.CancelExecutionStep.execute(CancelExecutionStep.java:42)
+	at org.gradle.internal.execution.steps.TimeoutStep.executeWithoutTimeout(TimeoutStep.java:75)
+	at org.gradle.internal.execution.steps.TimeoutStep.execute(TimeoutStep.java:55)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:51)
+	at org.gradle.internal.execution.steps.PreCreateOutputParentsStep.execute(PreCreateOutputParentsStep.java:29)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:70)
+	at org.gradle.internal.execution.steps.RemovePreviousOutputsStep.executeMutable(RemovePreviousOutputsStep.java:40)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:62)
+	at org.gradle.internal.execution.steps.BroadcastChangingOutputsStep.execute(BroadcastChangingOutputsStep.java:27)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:69)
+	at org.gradle.internal.execution.steps.CaptureOutputsAfterExecutionStep.execute(CaptureOutputsAfterExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveInputChangesStep.executeMutable(ResolveInputChangesStep.java:28)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+	at org.gradle.internal.execution.steps.BuildCacheStep.executeWithoutCache(BuildCacheStep.java:192)
+	at org.gradle.internal.execution.steps.BuildCacheStep.lambda$execute$1(BuildCacheStep.java:76)
+	at org.gradle.internal.Either$Right.fold(Either.java:176)
+	at org.gradle.internal.execution.caching.CachingState.fold(CachingState.java:62)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:74)
+	at org.gradle.internal.execution.steps.BuildCacheStep.execute(BuildCacheStep.java:49)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:46)
+	at org.gradle.internal.execution.steps.StoreExecutionStateStep.execute(StoreExecutionStateStep.java:35)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.executeBecause(SkipUpToDateStep.java:75)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.lambda$execute$2(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:53)
+	at org.gradle.internal.execution.steps.SkipUpToDateStep.execute(SkipUpToDateStep.java:35)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:37)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsFinishedStep.execute(MarkSnapshottingInputsFinishedStep.java:27)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:49)
+	at org.gradle.internal.execution.steps.ResolveIncrementalCachingStateStep.executeDelegate(ResolveIncrementalCachingStateStep.java:27)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:71)
+	at org.gradle.internal.execution.steps.AbstractResolveCachingStateStep.execute(AbstractResolveCachingStateStep.java:39)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:63)
+	at org.gradle.internal.execution.steps.ResolveChangesStep.executeMutable(ResolveChangesStep.java:34)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:64)
+	at org.gradle.internal.execution.steps.ValidateStep.execute(ValidateStep.java:42)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:77)
+	at org.gradle.internal.execution.steps.AbstractCaptureStateBeforeExecutionStep.execute(AbstractCaptureStateBeforeExecutionStep.java:46)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.executeWithNonEmptySources(AbstractSkipEmptyWorkStep.java:133)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:59)
+	at org.gradle.internal.execution.steps.AbstractSkipEmptyWorkStep.execute(AbstractSkipEmptyWorkStep.java:36)
+	at org.gradle.internal.execution.steps.legacy.MarkSnapshottingInputsStartedStep.execute(MarkSnapshottingInputsStartedStep.java:38)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:36)
+	at org.gradle.internal.execution.steps.LoadPreviousExecutionStateStep.execute(LoadPreviousExecutionStateStep.java:23)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:77)
+	at org.gradle.internal.execution.steps.HandleStaleOutputsStep.executeMutable(HandleStaleOutputsStep.java:43)
+	at org.gradle.internal.execution.steps.MutableStep.execute(MutableStep.java:25)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.lambda$execute$0(AssignMutableWorkspaceStep.java:35)
+	at org.gradle.api.internal.tasks.execution.TaskExecution$4.withWorkspace(TaskExecution.java:305)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:31)
+	at org.gradle.internal.execution.steps.AssignMutableWorkspaceStep.execute(AssignMutableWorkspaceStep.java:22)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:40)
+	at org.gradle.internal.execution.steps.ChoosePipelineStep.execute(ChoosePipelineStep.java:23)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.lambda$execute$2(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:67)
+	at org.gradle.internal.execution.steps.ExecuteWorkBuildOperationFiringStep.execute(ExecuteWorkBuildOperationFiringStep.java:39)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:46)
+	at org.gradle.internal.execution.steps.IdentityCacheStep.execute(IdentityCacheStep.java:34)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:44)
+	at org.gradle.internal.execution.steps.IdentifyStep.execute(IdentifyStep.java:31)
+	at org.gradle.internal.execution.impl.DefaultExecutionEngine$1.execute(DefaultExecutionEngine.java:68)
+	at org.gradle.api.internal.tasks.execution.ExecuteActionsTaskExecuter.executeIfValid(ExecuteActionsTaskExecuter.java:132)
+	... 30 more
+Caused by: com.android.ide.common.process.ProcessException: ninja: Entering directory `D:\PMC\Documents\Android\VpnM_Pro\app\.cxx\Debug\5g81d256\arm64-v8a'
+[1/14] Building C object CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o
+FAILED: CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o 
+C:\Users\PMC\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/PMC/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMBEDTLS_AES_C -DMBEDTLS_ALLOW_PRIVATE_ACCESS -DMBEDTLS_ASN1_PARSE_C -DMBEDTLS_ASN1_WRITE_C -DMBEDTLS_BIGNUM_C -DMBEDTLS_CHACHA20_C -DMBEDTLS_CHACHAPOLY_C -DMBEDTLS_CIPHER_C -DMBEDTLS_CTR_DRBG_C -DMBEDTLS_ENTROPY_C -DMBEDTLS_MD5_C -DMBEDTLS_MD_C -DMBEDTLS_NET_C -DMBEDTLS_OID_C -DMBEDTLS_PK_C -DMBEDTLS_POLY1305_C -DMBEDTLS_SHA1_C -DMBEDTLS_SHA256_C -DMBEDTLS_SSL_CLI_C -DMBEDTLS_SSL_TLS_C -Dsoftether_EXPORTS -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/include -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -Wall -Wno-unused-parameter -Wno-unused-variable -fPIC -g -O0 -std=gnu11 -MD -MT CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o -MF CMakeFiles\softether.dir\softether-core\src\proto\softether_rudp.c.o.d -o CMakeFiles/softether.dir/softether-core/src/proto/softether_rudp.c.o -c D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:11: error: unknown type name 'mbedtls_md_info_t'
+   52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |           ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |                                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:52:66: error: use of undeclared identifier 'MBEDTLS_MD_SHA1'
+   52 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |                                                                  ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:54:9: error: call to undeclared function 'mbedtls_md'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+   54 |         mbedtls_md(md_info, tmp, sizeof(tmp), key);
+      |         ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:618:13: error: use of undeclared identifier 'mbedtls_chachapoly_context'
+  618 |             mbedtls_chachapoly_context cp;
+      |             ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:619:13: error: call to undeclared function 'mbedtls_chachapoly_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  619 |             mbedtls_chachapoly_init(&cp);
+      |             ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:619:38: error: use of undeclared identifier 'cp'
+  619 |             mbedtls_chachapoly_init(&cp);
+      |                                      ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:620:17: error: call to undeclared function 'mbedtls_chachapoly_setkey'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  620 |             if (mbedtls_chachapoly_setkey(&cp, ctx->your_key_v2) != 0) {
+      |                 ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:620:44: error: use of undeclared identifier 'cp'
+  620 |             if (mbedtls_chachapoly_setkey(&cp, ctx->your_key_v2) != 0) {
+      |                                            ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:621:17: error: call to undeclared function 'mbedtls_chachapoly_free'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  621 |                 mbedtls_chachapoly_free(&cp);
+      |                 ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:621:42: error: use of undeclared identifier 'cp'
+  621 |                 mbedtls_chachapoly_free(&cp);
+      |                                          ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:625:28: error: call to undeclared function 'mbedtls_chachapoly_auth_decrypt'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  625 |             int auth_ret = mbedtls_chachapoly_auth_decrypt(&cp, cipher_len, iv, NULL, 0,
+      |                            ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:625:61: error: use of undeclared identifier 'cp'
+  625 |             int auth_ret = mbedtls_chachapoly_auth_decrypt(&cp, cipher_len, iv, NULL, 0,
+      |                                                             ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:627:13: error: call to undeclared function 'mbedtls_chachapoly_free'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  627 |             mbedtls_chachapoly_free(&cp);
+      |             ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:627:38: error: use of undeclared identifier 'cp'
+  627 |             mbedtls_chachapoly_free(&cp);
+      |                                      ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:772:9: error: use of undeclared identifier 'mbedtls_chachapoly_context'
+  772 |         mbedtls_chachapoly_context cp;
+      |         ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:773:9: error: call to undeclared function 'mbedtls_chachapoly_init'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  773 |         mbedtls_chachapoly_init(&cp);
+      |         ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:773:34: error: use of undeclared identifier 'cp'
+  773 |         mbedtls_chachapoly_init(&cp);
+      |                                  ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/proto/softether_rudp.c:774:13: error: call to undeclared function 'mbedtls_chachapoly_setkey'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  774 |         if (mbedtls_chachapoly_setkey(&cp, ctx->my_key_v2) != 0) {
+      |             ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[2/14] Building C object CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o
+FAILED: CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o 
+C:\Users\PMC\AppData\Local\Android\Sdk\ndk\28.2.13676358\toolchains\llvm\prebuilt\windows-x86_64\bin\clang.exe --target=aarch64-none-linux-android24 --sysroot=C:/Users/PMC/AppData/Local/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/windows-x86_64/sysroot -DMBEDTLS_AES_C -DMBEDTLS_ALLOW_PRIVATE_ACCESS -DMBEDTLS_ASN1_PARSE_C -DMBEDTLS_ASN1_WRITE_C -DMBEDTLS_BIGNUM_C -DMBEDTLS_CHACHA20_C -DMBEDTLS_CHACHAPOLY_C -DMBEDTLS_CIPHER_C -DMBEDTLS_CTR_DRBG_C -DMBEDTLS_ENTROPY_C -DMBEDTLS_MD5_C -DMBEDTLS_MD_C -DMBEDTLS_NET_C -DMBEDTLS_OID_C -DMBEDTLS_PK_C -DMBEDTLS_POLY1305_C -DMBEDTLS_SHA1_C -DMBEDTLS_SHA256_C -DMBEDTLS_SSL_CLI_C -DMBEDTLS_SSL_TLS_C -Dsoftether_EXPORTS -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/include -ID:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/mbedtls/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC -Wall -Wno-unused-parameter -Wno-unused-variable -fPIC -g -O0 -std=gnu11 -MD -MT CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o -MF CMakeFiles\softether.dir\softether-core\src\crypto\crypto_mbedtls.c.o.d -o CMakeFiles/softether.dir/softether-core/src/crypto/crypto_mbedtls.c.o -c D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:34:5: error: unknown type name 'mbedtls_cipher_context_t'
+   34 |     mbedtls_cipher_context_t cipher_ctx;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:41:5: error: unknown type name 'mbedtls_ssl_context'
+   41 |     mbedtls_ssl_context ssl;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:42:5: error: unknown type name 'mbedtls_ssl_config'
+   42 |     mbedtls_ssl_config conf;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:43:5: error: unknown type name 'mbedtls_ctr_drbg_context'
+   43 |     mbedtls_ctr_drbg_context ctr_drbg;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:44:5: error: unknown type name 'mbedtls_entropy_context'
+   44 |     mbedtls_entropy_context entropy;
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:52:24: error: use of undeclared identifier 'MBEDTLS_ERR_NET_INVALID_CONTEXT'
+   52 |     if (fd < 0) return MBEDTLS_ERR_NET_INVALID_CONTEXT;
+      |                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:56:20: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_WANT_WRITE'
+   56 |             return MBEDTLS_ERR_SSL_WANT_WRITE;
+      |                    ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:59:16: error: use of undeclared identifier 'MBEDTLS_ERR_NET_SEND_FAILED'
+   59 |         return MBEDTLS_ERR_NET_SEND_FAILED;
+      |                ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:66:24: error: use of undeclared identifier 'MBEDTLS_ERR_NET_INVALID_CONTEXT'
+   66 |     if (fd < 0) return MBEDTLS_ERR_NET_INVALID_CONTEXT;
+      |                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:70:20: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_WANT_READ'
+   70 |             return MBEDTLS_ERR_SSL_WANT_READ;
+      |                    ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:73:16: error: use of undeclared identifier 'MBEDTLS_ERR_NET_RECV_FAILED'
+   73 |         return MBEDTLS_ERR_NET_RECV_FAILED;
+      |                ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:76:16: error: use of undeclared identifier 'MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY'
+   76 |         return MBEDTLS_ERR_SSL_PEER_CLOSE_NOTIFY;
+      |                ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:11: error: unknown type name 'mbedtls_md_info_t'
+  101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+      |           ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+      |                                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:101:66: error: use of undeclared identifier 'MBEDTLS_MD_MD5'
+  101 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_MD5);
+      |                                                                  ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:103:5: error: call to undeclared function 'mbedtls_md'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  103 |     mbedtls_md(md_info, data ? data : (const uint8_t*)"", data_len, hash);
+      |     ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:11: error: unknown type name 'mbedtls_md_info_t'
+  109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |           ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:40: error: call to undeclared function 'mbedtls_md_info_from_type'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+  109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |                                        ^
+D:/PMC/Documents/Android/VpnM_Pro/app/src/main/cpp/softether-core/src/crypto/crypto_mbedtls.c:109:66: error: use of undeclared identifier 'MBEDTLS_MD_SHA1'
+  109 |     const mbedtls_md_info_t *md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA1);
+      |                                                                  ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+[3/14] Building C object CMakeFiles/softether_test.dir/jni/softether_jni.c.o
+[4/14] Building C object CMakeFiles/softether_test.dir/test/test_jni_bridge.c.o
+[5/14] Building C object CMakeFiles/softether_test.dir/test/native_test.c.o
+[6/14] Building C object CMakeFiles/softether_test.dir/softether-core/src/proto/softether_protocol.c.o
+ninja: build stopped: subcommand failed.
+
+C++ build system [build] failed while executing:
+    @echo off
+    "C:\\Users\\PMC\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
+      -C ^
+      "D:\\PMC\\Documents\\Android\\VpnM_Pro\\app\\.cxx\\Debug\\5g81d256\\arm64-v8a" ^
+      softether ^
+      softether_test
+  from D:\PMC\Documents\Android\VpnM_Pro\app
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:271)
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:98)
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt$executeProcess$1.invoke(ExecuteProcess.kt:96)
+	at com.android.build.gradle.internal.cxx.timing.TimingEnvironmentKt.time(TimingEnvironment.kt:28)
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess(ExecuteProcess.kt:96)
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.executeProcess$default(ExecuteProcess.kt:73)
+	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.executeProcessBatch(CxxRegularBuilder.kt:283)
+	at com.android.build.gradle.internal.cxx.build.CxxRegularBuilder.build(CxxRegularBuilder.kt:107)
+	at com.android.build.gradle.tasks.ExternalNativeBuildTask.doTaskAction(ExternalNativeBuildTask.kt:61)
+	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask$taskAction$$inlined$recordTaskAction$1.invoke(BaseTask.kt:71)
+	at com.android.build.gradle.internal.tasks.Blocks.recordSpan(Blocks.java:51)
+	at com.android.build.gradle.internal.tasks.UnsafeOutputsTask.taskAction(UnsafeOutputsTask.kt:72)
+	at org.gradle.internal.reflect.JavaMethod.invoke(JavaMethod.java:125)
+	... 122 more
+Caused by: com.android.ide.common.process.ProcessException: Error while executing process C:\Users\PMC\AppData\Local\Android\Sdk\cmake\3.22.1\bin\ninja.exe with arguments {-C D:\PMC\Documents\Android\VpnM_Pro\app\.cxx\Debug\5g81d256\arm64-v8a softether softether_test}
+	at com.android.build.gradle.internal.process.GradleProcessResult.buildProcessException(GradleProcessResult.java:73)
+	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:48)
+	at com.android.build.gradle.internal.cxx.process.ExecuteProcessKt.execute(ExecuteProcess.kt:258)
+	... 134 more
+Caused by: org.gradle.process.ProcessExecutionException: Process 'command 'C:\Users\PMC\AppData\Local\Android\Sdk\cmake\3.22.1\bin\ninja.exe'' finished with non-zero exit value 1
+	at org.gradle.process.internal.DefaultExecHandle$ExecResultImpl.assertNormalExitValue(DefaultExecHandle.java:454)
+	at com.android.build.gradle.internal.process.GradleProcessResult.assertNormalExitValue(GradleProcessResult.java:46)
+	... 135 more
+
+
+BUILD FAILED in 2s
+37 actionable tasks: 2 executed, 35 up-to-date
+Configuration cache entry reused.

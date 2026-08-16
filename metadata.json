@@ -1,0 +1,6 @@
+{
+  "name": "VpnM Pro",
+  "description": "SoftEther VPN Client with VPNGate mirror sources, custom filters, split tunneling, and room caching.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

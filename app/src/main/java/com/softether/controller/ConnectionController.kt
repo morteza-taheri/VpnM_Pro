@@ -372,12 +372,14 @@ class ConnectionController(
             Log.d(TAG, "DHCP success: IP=${dhcpResult.assignedIp}/${dhcpResult.prefixLength} " +
                     "GW=${dhcpResult.gateway} DNS=${dhcpResult.dnsServer} DNS2=${dhcpResult.dnsServer2}")
             assignedLocalIp = dhcpResult.assignedIp
-            // Update config with DHCP-assigned values
+            // Update config with DHCP-assigned IP but keep the user-configured
+            // DNS servers (default Google). DHCP-provided DNS from the virtual hub
+            // may be unreachable and would otherwise break all name resolution.
             val dhcpConfig = config.copy(
                 localAddress = dhcpResult.assignedIp,
                 prefixLength = dhcpResult.prefixLength,
-                dnsServer = if (dhcpResult.dnsServer != "0.0.0.0") dhcpResult.dnsServer else config.dnsServer,
-                secondaryDnsServer = if (dhcpResult.dnsServer2 != "0.0.0.0") dhcpResult.dnsServer2 else config.secondaryDnsServer
+                dnsServer = config.dnsServer,
+                secondaryDnsServer = config.secondaryDnsServer
             )
             vpnInterface = service.establishVpnInterface(dhcpConfig)
                 ?: throw Exception("Failed to establish VPN interface")
@@ -810,8 +812,8 @@ class ConnectionController(
                 val dhcpConfig = config.copy(
                     localAddress = dhcpResult.assignedIp,
                     prefixLength = dhcpResult.prefixLength,
-                    dnsServer = if (dhcpResult.dnsServer != "0.0.0.0") dhcpResult.dnsServer else config.dnsServer,
-                    secondaryDnsServer = if (dhcpResult.dnsServer2 != "0.0.0.0") dhcpResult.dnsServer2 else config.secondaryDnsServer
+                    dnsServer = config.dnsServer,
+                    secondaryDnsServer = config.secondaryDnsServer
                 )
                 vpnInterface = service.establishVpnInterface(dhcpConfig)
                     ?: throw Exception("Failed to establish VPN interface during reconnect")

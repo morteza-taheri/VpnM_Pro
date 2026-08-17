@@ -163,6 +163,16 @@ class SoftEtherVpnService : VpnService() {
             val useTcp = oldConfig.transportProtocol != com.example.vpn.model.TransportProtocol.UDP_V2
             val useUdp = oldConfig.transportProtocol == com.example.vpn.model.TransportProtocol.UDP_V2
 
+            // Apply the user's configured DNS servers (default: Google) to the real tunnel.
+            val dnsServers = try {
+                com.example.data.local.PreferencesManager(context).getEffectiveDnsServers()
+            } catch (e: Exception) {
+                emptyList()
+            }
+            val primaryDns = dnsServers.getOrNull(0)?.takeIf { it.isNotBlank() } ?: "8.8.8.8"
+            val secondaryDns = dnsServers.getOrNull(1)
+                ?.takeIf { it.isNotBlank() && it != primaryDns } ?: "8.8.4.4"
+
             val config = com.softether.model.ConnectionConfig(
                 serverHost = oldConfig.host,
                 serverPort = oldConfig.port,
@@ -171,7 +181,9 @@ class SoftEtherVpnService : VpnService() {
                 virtualHub = oldConfig.hubName,
                 authMethod = mappedAuth,
                 useTcp = useTcp,
-                useUdp = useUdp
+                useUdp = useUdp,
+                dnsServer = primaryDns,
+                secondaryDnsServer = secondaryDns
             )
             val intent = android.content.Intent(context, SoftEtherVpnService::class.java).apply {
                 action = ACTION_CONNECT
@@ -569,6 +581,12 @@ class SoftEtherVpnService : VpnService() {
      * Establish the VPN tunnel interface
      */
     fun establishVpnInterface(config: ConnectionConfig): ParcelFileDescriptor? {
+        val routeSummary = config.routes.joinToString(",") { "${it.address}/${it.prefixLength}" }
+        com.softether.SoftEtherVpnService.log(
+            "D", TAG,
+            "Establishing VPN interface: addr=${config.localAddress}/${config.prefixLength} mtu=${config.mtu} " +
+                "dns1=${config.dnsServer} dns2=${config.secondaryDnsServer} routes=$routeSummary"
+        )
         val builder = Builder()
             .setSession(config.sessionName)
             .setMtu(config.mtu)

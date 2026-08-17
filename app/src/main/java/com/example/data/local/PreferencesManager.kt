@@ -142,7 +142,7 @@ class PreferencesManager(context: Context) {
     private val _themeFlow = MutableStateFlow(getTheme())
     val themeFlow: StateFlow<String> = _themeFlow
 
-    fun getLanguage(): String = prefs.getString(KEY_LANGUAGE, "fa") ?: "fa"
+    fun getLanguage(): String = prefs.getString(KEY_LANGUAGE, "en") ?: "en"
     fun setLanguage(lang: String) {
         prefs.edit().putString(KEY_LANGUAGE, lang).apply()
         _languageFlow.value = lang
@@ -170,7 +170,9 @@ class PreferencesManager(context: Context) {
     }
 
     fun isSourceEnabled(sourceId: String): Boolean {
-        return prefs.getBoolean(PREFIX_SOURCE_ENABLED + sourceId, true)
+        // By default only the healthy HTML main-page source is enabled; all
+        // other sources (CSV API and mirrors) are disabled until verified.
+        return prefs.getBoolean(PREFIX_SOURCE_ENABLED + sourceId, sourceId == "vpngate_original")
     }
 
     fun setSourceEnabled(sourceId: String, enabled: Boolean) {
@@ -201,17 +203,17 @@ class PreferencesManager(context: Context) {
         prefs.edit().putString(KEY_DNS_MODE, mode).apply()
     }
 
-    fun getDnsPresetId(): String = prefs.getString(KEY_DNS_PRESET_ID, "SHECAN") ?: "SHECAN"
+    fun getDnsPresetId(): String = prefs.getString(KEY_DNS_PRESET_ID, "GOOGLE") ?: "GOOGLE"
     fun setDnsPresetId(id: String) {
         prefs.edit().putString(KEY_DNS_PRESET_ID, id).apply()
     }
 
-    fun getCustomDnsPrimary(): String = prefs.getString(KEY_DNS_PRIMARY, "178.22.122.100") ?: "178.22.122.100"
+    fun getCustomDnsPrimary(): String = prefs.getString(KEY_DNS_PRIMARY, "8.8.8.8") ?: "8.8.8.8"
     fun setCustomDnsPrimary(ip: String) {
         prefs.edit().putString(KEY_DNS_PRIMARY, ip).apply()
     }
 
-    fun getCustomDnsSecondary(): String = prefs.getString(KEY_DNS_SECONDARY, "185.51.200.2") ?: "185.51.200.2"
+    fun getCustomDnsSecondary(): String = prefs.getString(KEY_DNS_SECONDARY, "8.8.4.4") ?: "8.8.4.4"
     fun setCustomDnsSecondary(ip: String) {
         prefs.edit().putString(KEY_DNS_SECONDARY, ip).apply()
     }

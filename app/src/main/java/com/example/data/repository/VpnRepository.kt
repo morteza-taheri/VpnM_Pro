@@ -24,6 +24,10 @@ sealed class FetchResult {
 }
 
 class VpnRepository(context: Context) {
+    companion object {
+        private const val TAG = "VpnRepository"
+    }
+
     private val db = AppDatabase.getDatabase(context)
     private val dao = db.vpnServerDao()
     private val prefs = PreferencesManager(context)
@@ -104,16 +108,26 @@ class VpnRepository(context: Context) {
                 .build()
 
             httpClient.newCall(request).execute().use { response ->
-                if (!response.isSuccessful) return emptyList()
-                val bodyText = response.body?.string() ?: return emptyList()
-
-                if (sourceConfig.isCsv) {
-                    VpnGateCsvParser.parseCsv(bodyText, sourceConfig.id)
+                if (!response.isSuccessful) {
+                    android.util.Log.w(TAG, "Source ${sourceConfig.id} returned HTTP ${response.code}")
+                    emptyList()
                 } else {
-                    VpnGateHtmlParser.parseHtml(bodyText, sourceConfig.id)
+                    val bodyText = response.body?.string()
+                    if (bodyText == null) {
+                        emptyList()
+                    } else {
+                        val parsed = if (sourceConfig.isCsv) {
+                            VpnGateCsvParser.parseCsv(bodyText, sourceConfig.id)
+                        } else {
+                            VpnGateHtmlParser.parseHtml(bodyText, sourceConfig.id)
+                        }
+                        android.util.Log.i(TAG, "Source ${sourceConfig.id} parsed ${parsed.size} servers")
+                        parsed
+                    }
                 }
             }
         } catch (e: Exception) {
+            android.util.Log.w(TAG, "Source ${sourceConfig.id} failed: ${e.message}")
             emptyList()
         }
     }

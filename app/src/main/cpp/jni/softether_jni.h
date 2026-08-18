@@ -54,6 +54,13 @@ JNIEXPORT jintArray JNICALL Java_com_softether_client_SoftEtherClient_nativeGetA
 JNIEXPORT jintArray JNICALL Java_com_softether_client_SoftEtherClient_nativeDoDhcp(
     JNIEnv *env, jobject thiz, jlong handle);
 
+// MAC address accessors (payload of the active session)
+JNIEXPORT jbyteArray JNICALL Java_com_softether_client_SoftEtherClient_nativeGetClientMac(
+    JNIEnv *env, jobject thiz, jlong handle);
+
+JNIEXPORT jbyteArray JNICALL Java_com_softether_client_SoftEtherClient_nativeGetGatewayMac(
+    JNIEnv *env, jobject thiz, jlong handle);
+
 // Test functions for instrumentation tests
 JNIEXPORT jobject JNICALL Java_com_softether_test_NativeConnectionTest_nativeTestTcpConnection(
     JNIEnv *env, jobject thiz, jstring host, jint port, jint timeoutMs);

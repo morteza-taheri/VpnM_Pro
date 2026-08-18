@@ -286,6 +286,8 @@ class SoftEtherClient {
     external fun nativeSetMaxConnection(handle: Long, maxConnections: Int)
     external fun nativeGetNumConnections(handle: Long): Int
     external fun nativeGetAllSocketFds(handle: Long): IntArray?
+    external fun nativeGetClientMac(handle: Long): ByteArray?
+    external fun nativeGetGatewayMac(handle: Long): ByteArray?
 
     /**
      * Perform DHCP over SoftEther tunnel to get IP configuration
@@ -305,6 +307,24 @@ class SoftEtherClient {
             leaseTime = arr[6],
             prefixLength = subnetMaskToPrefix(arr[2])
         )
+    }
+
+    /**
+     * دریافت مک‌آدرس کلاینت اختصاص‌یافته برای اتصال فعلی
+     */
+    fun getClientMac(): ByteArray? {
+        val handle = externalHandle.takeIf { it != 0L } ?: nativeHandle
+        if (handle == 0L) return null
+        return nativeGetClientMac(handle)
+    }
+
+    /**
+     * دریافت مک‌آدرس گیت‌وی سرور حاصل از ARP در اتصال فعلی
+     */
+    fun getGatewayMac(): ByteArray? {
+        val handle = externalHandle.takeIf { it != 0L } ?: nativeHandle
+        if (handle == 0L) return null
+        return nativeGetGatewayMac(handle)
     }
 
     companion object {

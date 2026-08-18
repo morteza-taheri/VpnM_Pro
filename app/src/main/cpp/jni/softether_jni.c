@@ -375,3 +375,47 @@ JNIEXPORT jintArray JNICALL Java_com_softether_client_SoftEtherClient_nativeDoDh
     (*env)->SetIntArrayRegion(env, arr, 0, 7, values);
     return arr;
 }
+
+JNIEXPORT jbyteArray JNICALL Java_com_softether_client_SoftEtherClient_nativeGetClientMac(
+    JNIEnv *env, jobject thiz, jlong handle) {
+    if (handle == 0) {
+        LOGW("nativeGetClientMac: invalid handle");
+        return NULL;
+    }
+
+    softether_connection_t* conn = (softether_connection_t*)handle;
+
+    jbyteArray arr = (*env)->NewByteArray(env, 6);
+    if (arr == NULL) return NULL;
+    (*env)->SetByteArrayRegion(env, arr, 0, 6, (const jbyte*)conn->client_mac);
+
+    LOGD("nativeGetClientMac: %02X:%02X:%02X:%02X:%02X:%02X",
+         conn->client_mac[0], conn->client_mac[1], conn->client_mac[2],
+         conn->client_mac[3], conn->client_mac[4], conn->client_mac[5]);
+    return arr;
+}
+
+JNIEXPORT jbyteArray JNICALL Java_com_softether_client_SoftEtherClient_nativeGetGatewayMac(
+    JNIEnv *env, jobject thiz, jlong handle) {
+    if (handle == 0) {
+        LOGW("nativeGetGatewayMac: invalid handle");
+        return NULL;
+    }
+
+    softether_connection_t* conn = (softether_connection_t*)handle;
+
+    // Gateway MAC is only meaningful once ARP resolution succeeds after DHCP.
+    if (!conn->gateway_mac_resolved) {
+        LOGW("nativeGetGatewayMac: gateway MAC not resolved yet");
+        return NULL;
+    }
+
+    jbyteArray arr = (*env)->NewByteArray(env, 6);
+    if (arr == NULL) return NULL;
+    (*env)->SetByteArrayRegion(env, arr, 0, 6, (const jbyte*)conn->gateway_mac);
+
+    LOGD("nativeGetGatewayMac: %02X:%02X:%02X:%02X:%02X:%02X",
+         conn->gateway_mac[0], conn->gateway_mac[1], conn->gateway_mac[2],
+         conn->gateway_mac[3], conn->gateway_mac[4], conn->gateway_mac[5]);
+    return arr;
+}

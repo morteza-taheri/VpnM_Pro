@@ -27,7 +27,7 @@ data class ConnectionConfig(
     val prefixLength: Int = 24,
     val dnsServer: String = "8.8.8.8",
     val secondaryDnsServer: String = "8.8.4.4",
-    val mtu: Int = 1500,
+    val mtu: Int = 1400,
     val routes: List<Route> = listOf(Route("0.0.0.0", 0)), // Default route all traffic
     val localAddressV6: String = "",
     val prefixLengthV6: Int = 128,

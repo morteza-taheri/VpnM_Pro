@@ -77,6 +77,10 @@ class ConnectionController(
     private var vpnInterface: ParcelFileDescriptor? = null
     private var tunTerminal: TunTerminal? = null
 
+    // Dynamic MAC addresses obtained from DHCP and ARP resolution
+    @Volatile var currentClientMac: ByteArray? = null
+    @Volatile var resolvedGatewayMac: ByteArray? = null
+
     /**
      * Handle network connectivity changes.
      * On network loss, do NOT destroy the connection — the data forwarding loops will
@@ -276,6 +280,8 @@ class ConnectionController(
             com.softether.model.AuthMethod.AUTO -> -1
         }
         client.nativeSetAuthType(nativeHandle, authTypeInt)
+        // غیرفعال کردن اتصالات کمکی موازی پسزمینه برای جلوگیری از لوپ روتینگ سوکتها
+        client.nativeSetMaxConnection(nativeHandle, 1)
         startNativeStateMonitor()
         // Build client info (rudpPort will be filled in by native code during RUDP init)
         val clientInfo = buildClientInfo(0)
@@ -372,6 +378,18 @@ class ConnectionController(
             Log.d(TAG, "DHCP success: IP=${dhcpResult.assignedIp}/${dhcpResult.prefixLength} " +
                     "GW=${dhcpResult.gateway} DNS=${dhcpResult.dnsServer} DNS2=${dhcpResult.dnsServer2}")
             assignedLocalIp = dhcpResult.assignedIp
+            // دریافت مک‌آدرس کلاینت و گیت‌وی به صورت کاملاً پویا و واقعی از نشست فعال
+            currentClientMac = client.getClientMac() ?: byteArrayOf(
+                0x5E.toByte(), 0x5C.toByte(), 0x9B.toByte(), 0x33.toByte(), 0x1A.toByte(), 0x17.toByte()
+            )
+
+            resolvedGatewayMac = client.getGatewayMac() ?: byteArrayOf(
+                0x5E.toByte(), // SE prefix
+                0x2C.toByte(), 0x9A.toByte(), 0xFF.toByte(), 0x62.toByte(), 0x09.toByte()
+            )
+
+            Log.d(TAG, "Connection Established with Dynamic MACs -> Client: ${currentClientMac?.joinToString(":") { "%02X".format(it) }}, Gateway: ${resolvedGatewayMac?.joinToString(":") { "%02X".format(it) }}")
+
             // Update config with DHCP-assigned IP but keep the user-configured
             // DNS servers (default Google). DHCP-provided DNS from the virtual hub
             // may be unreachable and would otherwise break all name resolution.
@@ -559,28 +577,30 @@ class ConnectionController(
             ?: throw IllegalStateException("VPN interface not established")
 
         // Store reference to tunTerminal so we can stop it cleanly
-        this.tunTerminal = TunTerminal(tunInterface, scope)
+        this.tunTerminal = TunTerminal(tunInterface)
         val terminal = this.tunTerminal!!
         
         val packetHandler = PacketHandler(client)
         val keepAliveManager = KeepAliveManager(client)
 
-        // Start TUN interface reading
-        terminal.start(
-            onPacket = { packet ->
-                // Packet from TUN (local system) -> send to VPN
+        // Set dynamic MAC addresses obtained from DHCP/ARP resolution before starting
+        terminal.clientMac = currentClientMac
+        terminal.gatewayMac = resolvedGatewayMac
+
+        // Set packet callback: packets read from TUN are queued to the PacketHandler
+        terminal.onPacketReceived = { packet ->
+            try {
                 packetHandler.queuePacket(packet)
-            },
-            onError = { error ->
-                com.softether.SoftEtherVpnService.log("E", TAG, "TUN interface error", error)
+            } catch (e: Exception) {
+                com.softether.SoftEtherVpnService.log("E", TAG, "Error queuing packet from TunTerminal", e)
                 if (!isCancelled.get()) {
-                    // Don't call onError() here — it triggers stopVpn() in VpnService
-                    // which destroys everything. Instead, let attemptReconnect handle
-                    // the full lifecycle (tear down + reconnect + new TUN).
                     scope.launch { attemptReconnect() }
                 }
             }
-        )
+        }
+
+        // Start TUN interface reading
+        terminal.start()
 
         // Send loop: TUN -> VPN
         scope.launch {
@@ -590,6 +610,13 @@ class ConnectionController(
                     val packet = packetHandler.pollSendQueue()
                     if (packet != null) {
                         val result = client.send(packet)
+                        if (packetsSent.get() <= 10 || packetsSent.get() % 50L == 0L) {
+                            com.softether.SoftEtherVpnService.log(
+                                "D", TAG,
+                                "TX: nativeSend result=$result for ${packet.size} bytes " +
+                                    "(packets=${packetsSent.get()} bytes=${bytesSent.get()})"
+                            )
+                        }
                         if (result > 0) {
                             bytesSent.addAndGet(result.toLong())
                             packetsSent.incrementAndGet()
@@ -629,6 +656,13 @@ class ConnectionController(
                             // Valid data received
                             val packet = receiveBuffer.copyOf(result)
                             val writeResult = terminal.write(packet)
+                            if (packetsReceived.get() <= 10 || packetsReceived.get() % 50L == 0L) {
+                                com.softether.SoftEtherVpnService.log(
+                                    "D", TAG,
+                                    "RX: nativeReceive result=$result bytes -> TUN write=$writeResult " +
+                                        "(packets=${packetsReceived.get()} bytes=${bytesReceived.get()})"
+                                )
+                            }
                             if (writeResult > 0) {
                                 bytesReceived.addAndGet(result.toLong())
                                 packetsReceived.incrementAndGet()
@@ -747,6 +781,8 @@ class ConnectionController(
                 com.softether.model.AuthMethod.AUTO -> -1
             }
             client.nativeSetAuthType(nativeHandle, authTypeInt)
+            // اعمال سقف اتصال تکی برای سناریوی قطع و وصل خودکار
+            client.nativeSetMaxConnection(nativeHandle, 1)
 
             // Connect to server (TLS + protocol + auth + session)
             startNativeStateMonitor()
@@ -809,6 +845,19 @@ class ConnectionController(
             if (dhcpResult != null) {
                 com.softether.SoftEtherVpnService.log("D", TAG, "DHCP success on reconnect: IP=${dhcpResult.assignedIp}/${dhcpResult.prefixLength}")
                 assignedLocalIp = dhcpResult.assignedIp
+
+                // دریافت مک‌آدرس‌های جدید در سناریوی قطع و وصل مجدد خودکار
+                currentClientMac = client.getClientMac() ?: byteArrayOf(
+                    0x5E.toByte(), 0x5C.toByte(), 0x9B.toByte(), 0x33.toByte(), 0x1A.toByte(), 0x17.toByte()
+                )
+
+                resolvedGatewayMac = client.getGatewayMac() ?: byteArrayOf(
+                    0x5E.toByte(),
+                    0x2C.toByte(), 0x9A.toByte(), 0xFF.toByte(), 0x62.toByte(), 0x09.toByte()
+                )
+
+                Log.d(TAG, "Reconnected with Dynamic MACs -> Client: ${currentClientMac?.joinToString(":") { "%02X".format(it) }}, Gateway: ${resolvedGatewayMac?.joinToString(":") { "%02X".format(it) }}")
+
                 val dhcpConfig = config.copy(
                     localAddress = dhcpResult.assignedIp,
                     prefixLength = dhcpResult.prefixLength,

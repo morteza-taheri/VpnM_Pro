@@ -642,10 +642,12 @@ static uint8_t* build_login_pack(const char* hub_name, const char* username,
     pack_add_int(&p, "client_build", client_build);
     pack_add_int(&p, "client_id", 0);
     pack_add_int(&p, "protocol", rudp ? 1 : 0);   // 0 = TCP, 1 = UDP
-    pack_add_int(&p, "max_connection", 4);  // Request 4 connections for multi-connection throughput
+    pack_add_int(&p, "max_connection", (uint32_t)conn->max_connection);
     pack_add_int(&p, "use_encrypt", 1);
     pack_add_int(&p, "use_compress", 1);
-    pack_add_int(&p, "half_connection", 1);  // Half-connection: primary becomes C2S, additional sockets get S2C/C2S
+    // Half-connection only makes sense with multiple connections (2+).
+    // With a single connection the primary socket handles both directions (BOTH).
+    pack_add_int(&p, "half_connection", conn->max_connection > 1 ? 1 : 0);
     pack_add_int(&p, "require_bridge_routing_mode", 0);
     pack_add_int(&p, "require_monitor_mode", 0);
     pack_add_int(&p, "qos", 1);
@@ -1710,7 +1712,10 @@ int softether_connect_with_hub(softether_connection_t* conn, const char* host, i
     // Half-connection: establish first additional connection synchronously before returning.
     // Server sets primary to C2S on its side after login, so we need at least one S2C
     // additional socket to receive data (DHCP etc.) before the caller starts receiving.
-    if (conn->half_connection) {
+    // Skip the forced half-connection auxiliary socket when we are limited to a
+    // single connection (max_connection == 1). This prevents any background socket
+    // creation and eliminates the routing loop. Primary stays BOTH as fallback.
+    if (conn->half_connection && conn->max_connection > 1) {
         softether_establish_first_additional(conn);
         // Even if this failed, we proceed — primary stays BOTH as fallback.
         // The caller (DHCP, receive loop) will handle missing S2C gracefully.
@@ -1865,6 +1870,14 @@ int softether_send(softether_connection_t* conn, const uint8_t* data, size_t len
         LOGE("Failed to build Ethernet frame");
         return -1;
     }
+
+    // Diagnostic: MACs + EtherType of the Ethernet frame we just built around the L3 packet.
+    LOGD("TX: wrapped L3 packet len=%zu -> frame len=%d | ETH DST=%02X:%02X:%02X:%02X:%02X:%02X "
+         "SRC=%02X:%02X:%02X:%02X:%02X:%02X TYPE=%04X",
+         len, frame_len,
+         frame[0], frame[1], frame[2], frame[3], frame[4], frame[5],
+         frame[6], frame[7], frame[8], frame[9], frame[10], frame[11],
+         (uint16_t)((frame[12] << 8) | frame[13]));
 
     // Send as a single data block using real SoftEther format (with RUDP if active)
     int sent = softether_send_data(conn, frame, (uint32_t)frame_len);
@@ -2025,6 +2038,7 @@ int softether_receive(softether_connection_t* conn, uint8_t* buffer, size_t max_
         // Not IP — skip (e.g., ARP already handled above)
         conn->recv_queue_head = (conn->recv_queue_head + 1) % RECV_QUEUE_SIZE;
         conn->recv_queue_count--;
+        LOGD("RX skip: EtherType=%04x (non-IP)", ethertype);
         return 0;
     }
 
@@ -2036,6 +2050,14 @@ int softether_receive(softether_connection_t* conn, uint8_t* buffer, size_t max_
         conn->recv_queue_count--;
         return -1;
     }
+
+    // Diagnostic: MACs + EtherType stripped from the received frame before handing the L3 packet up.
+    LOGD("RX: stripped Ethernet header -> L3 ip_len=%u | ETH DST=%02X:%02X:%02X:%02X:%02X:%02X "
+         "SRC=%02X:%02X:%02X:%02X:%02X:%02X TYPE=%04X",
+         ip_len,
+         entry->data[0], entry->data[1], entry->data[2], entry->data[3], entry->data[4], entry->data[5],
+         entry->data[6], entry->data[7], entry->data[8], entry->data[9], entry->data[10], entry->data[11],
+         ethertype);
 
     memcpy(buffer, entry->data + ETH_HEADER_SIZE, ip_len);
     conn->recv_queue_head = (conn->recv_queue_head + 1) % RECV_QUEUE_SIZE;

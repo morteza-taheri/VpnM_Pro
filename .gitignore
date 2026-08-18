@@ -1,17 +1,26 @@
-*.iml
-.gradle
-.kotlin
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# فایل‌های موقتی و لاگ
+*.log
+build_err.log
+build_run.log
+install_*.txt
+logcat_*.txt
+fix_run.ps1
+org/
+
+# تنظیمات ویرایشگر
+.vscode/
+
+# Gradle و فایل‌های ساخت
+.gradle/
+build/
+app/build/
+app/.cxx/
 local.properties
-.env
+*.iml
+*.iws
+*.ipr
+
+# Android Studio
+.idea/
+.cxx/
+captures/
